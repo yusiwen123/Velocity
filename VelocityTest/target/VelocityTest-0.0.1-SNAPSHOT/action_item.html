@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>收保证金通知单</title>
+    <script type="text/javascript" src="$!link.contextPath/resource/jquery/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="$!link.contextPath/resource/jquery/jquery.printarea.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            //设置大写
+            var priceUppercase = digitUppercase("21321.2323");
+            $("#priceUppercase").text(priceUppercase);
+            printf();
+        });
+        function printf() {
+            $(".content").printArea();
+        };
+        function digitUppercase(n) {
+            var fraction = ['角', '分'];
+            var digit = [
+                '零', '壹', '贰', '叁', '肆',
+                '伍', '陆', '柒', '捌', '玖'
+            ];
+            var unit = [
+                ['元', '万', '亿'],
+                ['', '拾', '佰', '仟']
+            ];
+            var head = n < 0 ? '欠' : '';
+            n = Math.abs(n);
+            var s = '';
+            for (var i = 0; i < fraction.length; i++) {
+                s += "  " + (digit[Math.floor(n * 10 * Math.pow(10, i)) % 10] + "  " + fraction[i]).replace(/零./, '');
+            }
+            s = s || '整';
+            n = Math.floor(n);
+            for (var i = 0; i < unit[0].length && n > 0; i++) {
+                var p = '';
+                for (var j = 0; j < unit[1].length && n > 0; j++) {
+                    p = "  " + digit[n % 10] + "  " + unit[1][j] + p;
+                    n = Math.floor(n / 10);
+                }
+                s = p.replace(/(零.)*零$/, '').replace(/^$/, '零') + unit[0][i] + s;
+            }
+            return "(大写"+ head + s.replace(/(零.)*零元/, '元').replace(/(零.)+/g, '零').replace(/^整$/, '零元整') + ")";
+        }
+    </script>
+<body>
+    <div class="content">
+        <style type="text/css">
+            body {
+                margin: 0px;
+                padding: 0px;
+            }
+            .content{
+                width: 1000px;
+                height: 500px;
+            }
+            h1{
+                padding: 0px;
+                margin: 0px;
+                font-size: 2em;
+            }
+            .title {
+                border-bottom: 5px double black;
+                letter-spacing: 5px;
+                padding-top: -20px;
+            }
+            span {
+                font-size: 1.2em;
+                letter-spacing: 3px;
+                font-weight: 500;
+                display:-moz-inline-box;
+                display:inline-block;
+                text-align: center;
+            }
+            .underline {
+                border-bottom: 1px solid black;
+            }
+            p {
+                margin-top: 25px;
+            }
+            .checkbox {
+                width: 18px;
+                height: 18px;
+                vertical-align: middle;
+            }
+        </style>
+        <img src="$!link.contextPath/image/chevip_banner.jpg" width="1000px" />
+        <h1 align="center"><span class="title">收保证金通知单</span></h1>
+        <p style="margin-top: 60px;margin-left: 100px">
+            <span >付保证金姓名:</span>
+            <span class="underline" style="width: 100px;">张三</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span >用户名:</span>
+            <span class="underline" style="width: 100px;">李四</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span >金额:</span>
+            <span class="underline" style="width: 150px;">2000.00</span>
+        </p>
+        <p style="text-align: right;margin-right: 120px;"><span id="priceUppercase"></span></p>
+        <p style="margin-top: 30px;margin-left: 100px">
+            <span >收款方式:</span>
+            <input type="checkbox" class="checkbox"><span>银行转账</span></input>
+            <span class="underline">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;&nbsp;
+            <input type="checkbox" class="checkbox"><span>中国银联</span></input>
+            <span class="underline">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;&nbsp;
+            <input type="checkbox" class="checkbox"><span>广物支物</span></input>
+            <span class="underline">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+        </p>
+        <p style="margin-top: 30px;margin-left: 200px">
+            <input type="checkbox" class="checkbox" checked="true"><span>刷卡</span></input>
+            <span class="underline">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="checkbox" class="checkbox"><span>现金</span></input>
+            <span class="underline">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="checkbox" class="checkbox"><span>其他</span></input>
+            <span class="underline">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+        </p>
+        <p style="margin-top: 40px;margin-left: 100px">
+            <span >收款日期:</span>
+            <span class="underline" style="width: 150px;font-size: 16px;">2017-10-30</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span >业务经办人:</span>
+            <span class="underline" style="width: 100px;">张三</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span >财务经办人:</span>
+            <span class="underline" style="width: 100px;">李四</span>
+        </p>
+    </div>
+</body>
+</html>

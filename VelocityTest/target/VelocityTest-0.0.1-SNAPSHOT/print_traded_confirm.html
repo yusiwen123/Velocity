@@ -1,0 +1,218 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>成交确认合同书</title>
+    <script type="text/javascript" src="/resource/jquery/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="/resource/jquery/jquery.printarea.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            //设置大写
+            var priceUppercase = digitUppercase("21321.2323");
+            $("#priceUppercase").text(priceUppercase);
+        });
+        function printf() {
+            $(".content").printArea();
+        };
+        function digitUppercase(n) {
+            var fraction = ['角', '分'];
+            var digit = [
+                '零', '壹', '贰', '叁', '肆',
+                '伍', '陆', '柒', '捌', '玖'
+            ];
+            var unit = [
+                ['元', '万', '亿'],
+                ['', '拾', '佰', '仟']
+            ];
+            var head = n < 0 ? '欠' : '';
+            n = Math.abs(n);
+            var s = '';
+            for (var i = 0; i < fraction.length; i++) {
+                s += "  " + (digit[Math.floor(n * 10 * Math.pow(10, i)) % 10] + "  " + fraction[i]).replace(/零./, '');
+            }
+            s = s || '整';
+            n = Math.floor(n);
+            for (var i = 0; i < unit[0].length && n > 0; i++) {
+                var p = '';
+                for (var j = 0; j < unit[1].length && n > 0; j++) {
+                    p = "  " + digit[n % 10] + "  " + unit[1][j] + p;
+                    n = Math.floor(n / 10);
+                }
+                s = p.replace(/(零.)*零$/, '').replace(/^$/, '零') + unit[0][i] + s;
+            }
+            return "(大写"+ head + s.replace(/(零.)*零元/, '元').replace(/(零.)+/g, '零').replace(/^整$/, '零元整') + ")";
+        }
+    </script>
+<body>
+    <div class="content">
+        <style type="text/css">
+            body {
+                margin: 0px;
+                padding: 0px;
+                font-family:"宋体";
+            }
+            .content{
+                width: 1000px;
+                margin: 0 auto;
+                border: 1px solid red;
+            }
+            h1{
+                padding: 0px;
+                margin: 0px;
+                font-size: 2em;
+            }
+            .title {
+                letter-spacing: 5px;
+                margin-top: 20px;
+                margin-bottom: 10px;
+            }
+            span{
+                display:-moz-inline-box;
+                display:inline-block;
+                word-break: normal;
+            }
+            .span1 {
+                font-size: 1.2em;
+                font-weight: 600;
+                text-align: center;
+            }
+            .span2 {
+                font-size: 1.1em;
+                font-weight: 600;
+                text-align: center;
+            }
+            .span3 {
+                font-size: 1.0em;
+                font-weight: 500;
+                text-align: center;
+            }
+            .span4 {
+                font-size: 0.8em;
+                font-weight: 600;
+                text-align: center;
+            }
+
+            .span5 {
+                 font-size: 0.9em;
+                 font-weight: 500;
+             }
+
+            .underline1 {
+                border-bottom: 1px solid black;
+            }
+            .underline2 {
+                border-bottom: 2px solid black;
+            }
+            p {
+                margin-top: 25px;
+            }
+            .checkbox {
+                width: 18px;
+                height: 18px;
+                vertical-align: middle;
+            }
+        </style>
+        <div style="border-bottom: 2px solid black;padding-left: 70px;padding-right: 70px;padding-top: 20px;">
+            <img src="/image/logo.jpg" width="150px;" />
+            <span class="span4" style="margin-left: 140px">唯普汽车</span>
+            <span class="span4" style="margin-left: 100px">www.chevip.com</span>
+            <span class="span4" style="margin-left: 140px">热线：40089-12345</span>
+        </div>
+        <h1 align="center"><span class="title">二手车成交确认书</span></h1>
+        <div style="padding-left: 70px;padding-right: 70px;">
+            <p style="margin-top: 10px;">
+                <span class="span1" >甲方：广东唯普汽车电子商务股份有限公司</span>
+            </p>
+            <p style="margin-top: 10px;">
+                <span class="span1" >乙方：</span>
+                <span class="span1" style="width: 180px;"></span>
+                <span class="span1" >（身份证/机构代码证：</span>
+                <span class="span1" style="width: 200px;"></span>
+                <span class="span1" >）</span>
+            </p>
+            <p style="margin-top: 10px;line-height: 24px;">
+                <span class="span2" style="text-align: left;line-height: 40px;" >
+                    <span class="span2" >&nbsp;&nbsp;乙方于</span>
+                    <span class="span2 underline2" style="width: 50px;"></span>年
+                    <span class="span2 underline2" style="width: 30px;"></span>月
+                    <span class="span2 underline2" style="width: 30px;"></span>日通过甲方唯普汽车（www.chevip.com）等网络平台（以下简称“网络平台”）通过
+                    <span class="span2 underline2" style="width: 60px;"></span>方式购买二手车，并就确认购买二手车之买卖合同成立事宜订立本成交确认书。
+                </span>
+            </p>
+            <p style="margin-top: 10px;line-height: 24px;">
+                <span class="span2" >一、	乙方确认本人通过网络平台</span>
+                <span class="span2 underline2" style="width: 50px;"></span>
+                <span class="span2" >方式购买二手车之二手车买卖合同成立，成为该二手车的买受人 。</span>
+            </p>
+            <p style="margin-top: 10px;line-height: 24px;margin-bottom: 8px">
+                <span class="span2" >二、	成交的二手车的基本情况：</span>
+            </p>
+            <p style="margin-top: 4px;line-height: 32px;margin-left: 12px;margin-bottom: 10px;">
+                <span class="span3" >登记车主:
+                    <span class="span3 underline1" style="width: 100px;"></span>，车牌号码:
+                    <span class="span3 underline1" style="width: 100px;"></span>，厂牌型号:
+                    <span class="span3 underline1" style="width: 150px;"></span>，登记日期:
+                    <span class="span3 underline1" style="width: 100px;"></span>，发动机号:
+                    <span class="span3 underline1" style="width: 140px;"></span>，车架号:
+                    <span class="span3 underline1" style="width: 160px;"></span>。年票有效期:
+                    <span class="span3 underline1" style="width: 60px;"></span> 年
+                    <span class="span3 underline1" style="width: 60px;"></span>月，车船税有效期:
+                    <span class="span3 underline1" style="width: 60px;"></span>年
+                    <span class="span3 underline1" style="width: 40px;"></span>月，保险：险种
+                    <span class="span3 underline1" style="width: 100px;"></span>有效期
+                    <span class="span3 underline1" style="width: 60px;"></span>年
+                    <span class="span3 underline1" style="width: 40px;"></span>月， 年审合格至:
+                    <span class="span3 underline1" style="width: 60px;"></span>年
+                    <span class="span3 underline1" style="width: 40px;"></span>月</span>
+            </p>
+            <p style="margin-top: 4px;line-height: 24px;margin-bottom: 12px">
+                <span class="span2" >三、	成交转让总价款（含服务费）：</span>
+                <p style="margin-left: 18px;margin-top: 4px;">
+                    <span class="span3">人民币￥
+                        <span class="span3 underline1" style="width: 100px;"></span>元
+                        <span class="span3">（大写：   佰已拾 万 爱仕达  萨达  仟元 ）</span>
+                    </span>
+                </p>
+            </p>
+            <p style="margin-top: 10px;line-height: 24px;margin-bottom: 8px">
+                <span class="span2" >四、	双方的权利义务</span>
+            </p>
+            <p style="margin-top: 10px;line-height: 24px;margin-bottom: 8px">
+                <span class="span5">
+                     1. 甲方保证向乙方提供的有关车辆证件真实性。<br/>
+                     2．乙方在成交前已清楚了解发二手车车辆状况及第二条约定的基本情况，乙方对于二手车的质量没有异议，同意按二手车交付时的现状受让该二手车。<br/>
+                     3. 乙方确认在收到甲方的通知规定的时间限期内与二手车车主转让方或甲方签订二手车转让协议 。二手车转让协议的主要内容以本确认书及网络平台中注明的内容确定。<br/>
+                     4. 乙方须按网络平台注明的时间内向甲方支付清成交转让价款、竞价服务费、过户费等费用，并按网络平台注明的时间内办理二手车过户手续。<br/>
+                     5. 如乙方逾期未签订二手车转让协议，或逾期未支付清前述成交转让价款、竞价服务费、过户费等费用，或逾期拒不办理过户手续的，则甲方有权单方解除本确认书，收回已成交的二手车，并不退还乙方缴交的保证金。<br/>
+                     6. 该二手车已缴交的相关税费及保险的情况以以网络平台注明的信息为准，未缴纳的税费及保险或其它二手车应缴交费用均由乙方负责。<br/>
+                     7. 该车辆只过户给乙方或经乙方书面请求后过户给乙方指定的第三人。乙方或乙方指定的第三人需要带齐过户所需证件（身份证、居住证等），且乙方或乙方指定的第三人本人必须亲自到指定车管所办理车辆过户手续。在领取车辆过户回执后，甲方将该车辆交付乙方。如因特殊情况，乙方希望过户前先提车的，需甲方同意且需交纳10000元/台的提车押金，待车辆过户手续办理完毕后，方可退还押金。<br/>
+                     8. 该二手车车辆过户办理时间以各地车管所实际业务处理时间为准，如车辆如有特殊情况的（如需处理违章、解编、年审等问题），则过户办理时间相应延期。需办理迁出手续的，乙方须事先咨询二手车落籍所在地车管所主管部门能否办理迁入手续，否则该二手车车辆迁出手续一经办理后，甲方概不负责回迁和改迁手续事宜，由乙方自行承担该风险；<br/>
+                     9. 该二手车移交之前所产生的交通事故、债权债务等相关责任由原二手车车主负责；车辆移交之后所产生的车辆违章、交通事故、债权债务等相关责任由乙方负责。<br/>
+                     10. 由于二手车的车辆技术状况原因导致未能办理二手车车辆过户登记的，则甲、乙双方一致同意解除二手车转让关系，甲方将已收取的乙方的款项退还给乙方，乙方将二手车退还给甲方，双方均不追究对方的其它的法律责任。甲乙双方均不负责因此原因导致对方引起的损失之责任。<br/>
+                     11. 因本确认书及二手车转让之在相关事宜引起的纠纷，由双方协商解决，协商不成的，双方均应向甲方所在地的人民法院起诉。<br/>
+                     12. 本确认书自双方签订之日起生效。本确认书一式贰份，甲方执壹份，乙方执壹份。
+                </span>
+            </p>
+            <p style="margin-top: 30px;margin-bottom: 8px">
+                <span class="span1" style="font-size: 1.0em">甲方：广东唯普汽车电子商务股份有限公司</span>
+                <span class="span1" style="margin-left: 100px;" >乙方：</span>
+                <span class="span1" style="width: 180px;"></span>
+                <span class="span1">电话：</span>
+            </p>
+            <p style="margin-top: 30px;margin-top: 10px;margin-bottom: 8px">
+                <span class="span1" style="font-size: 1.0em">签约代表：</span>
+                <span class="span1" style="width: 320px;"></span>
+                <span class="span1">签约代表：</span>
+                <span class="span1" style="width: 320px;"></span>
+            </p>
+            <p style="margin-top: 30px;margin-top: 10px;">
+                <span class="span1" style="font-size: 1.0em">日期：</span>
+                <span class="span1" style="width: 350px;">年&nbsp;&nbsp;&nbsp;&nbsp;月&nbsp;&nbsp;&nbsp;&nbsp;日</span>
+                <span class="span1" style="font-size: 1.0em">日期：</span>
+                <span class="span1" style="width: 350px;">年&nbsp;&nbsp;&nbsp;&nbsp;月&nbsp;&nbsp;&nbsp;&nbsp;日</span>
+            </p>
+        </div>
+    </div>
+<button onclick="printf()">打印</button>
+</body>
+</html>

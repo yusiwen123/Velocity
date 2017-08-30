@@ -1,0 +1,218 @@
+.car-img {
+    width: 602px;
+    float: left;
+    position: relative;
+}
+.car-img .bigimgbox{
+    margin-bottom: 16px;
+    position: relative;
+    height: 402px;
+}
+.car-img .smallimgbox{
+    position: relative;
+    overflow: hidden;
+    height: 84px;
+}
+.bigimgbox .page-number {
+    font-size: 14px;
+    color: #fff;
+    position: absolute;
+    right: 10px;
+    bottom: 5px;
+    z-index: 9;
+}
+.bigimgbox a.prev, a.next {
+    position: absolute;
+    z-index: 100;
+    margin-top: 159px;
+    width: 50px;
+    height: 90px;
+    background-repeat: no-repeat;
+}
+a.prev{
+    left: 0px;
+    background-image: url(../image/bigimgbox-prev.png);
+}
+a.prev:hover{
+    background-image: url(../image/bigimgbox-prevhov.png);
+}
+a.next{
+    right: 0px;
+    background-image: url(../image/bigimgbox-next.png);
+}
+a.next:hover{
+    background-image: url(../image/bigimgbox-nexthov.png);
+}
+ul, li, ol{
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+.bigimg{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    display: none;
+}
+.bigimg img{
+    max-width: 100%;
+    height: 100%;
+}
+.smallimgbox .red-border{
+    border: 3px solid #22ac38;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 112px;
+    height: 74px;
+    display: none;
+}
+.smallimgbox img{
+    width: 116px;
+    height: 78px;
+    border: 1px solid #e9e9e9;
+}
+.smallimgbox li{
+    margin: 0 3px;
+    padding: 0;
+    height: 80px;
+    float: left;
+    position: relative;
+    cursor: pointer;
+}
+.smallimgbox a.small-prev, a.small-next {
+    position: absolute;
+    display: inline-block;
+    width: 32px;
+    height: 80px;
+    top: 0px;
+    background-repeat: no-repeat;
+}
+.smallimgbox a.small-prev{
+    left: -1px;
+    background-image: url(../image/smallimgbox-prev.png);
+}
+.smallimgbox a.small-prev:hover{
+    background-image: url(../image/smallimgbox-prevhov.png);
+}
+.smallimgbox a.small-next{
+    right: -1px;
+    background-image: url(../image/smallimgbox-next.png);
+}
+.smallimgbox a.small-next:hover{
+    background-image: url(../image/smallimgbox-nexthov.png);
+}
+/*弹出大图样式*/
+.pop-img{
+    position: fixed;
+    z-index: 102;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    display: none;
+}
+/*弹出大图遮罩层*/
+.pop-mask{
+    position: fixed;
+    z-index: 101;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #000;
+    opacity: 0.8;
+    display: none;
+}
+/*弹出大图关闭按钮*/
+.pop-close{
+    position: fixed;
+    top:20px;
+    right: 20px;
+    width: 37px;
+    height: 37px;
+    background-repeat: no-repeat;
+    background-image: url(../image/pop-img_close.png);
+    z-index: 102;
+}
+.pop-close:hover{
+    cursor: pointer;
+}
+/*弹出大图*/
+.pop-img .pop-bigimgbox{
+    position: absolute;
+    top: 20px;
+    bottom: 157px;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+.pop-img .pop-page-intro{
+    position: absolute;
+    text-align: left;
+    left: 0;
+    right: 0;
+    width: 1000px;
+    bottom: 0;
+    height: 34px;
+    line-height: 34px;
+    padding: 0 10px;
+    display: block;
+    background-color: rgba(0,0,0,0.8);
+    margin: auto;
+    z-index: 1;
+    color: white;
+}
+.pop-img .pop-page-div{
+    position: absolute;
+    right: 10px;
+    top: 0;
+    margin: 0px;
+}
+.pop-img a.pop-prev,a.pop-next{
+    width: 52px;
+    height: 94px;
+    position: absolute;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    z-index: 100;
+    top: 50%;
+    margin-top: -47px;
+    border-radius: 3px;
+}
+a.pop-prev{
+    left: 10%;
+    background-image: url(../image/pop-bigimgbox-prev.png);
+}
+a.pop-prev:hover{
+    background-image: url(../image/pop-bigimgbox-prevhov.png);
+}
+a.pop-next{
+    right: 10%;
+    background-image: url(../image/pop-bigimgbox-next.png);
+}
+a.pop-next:hover{
+    background-image: url(../image/pop-bigimgbox-nexthov.png);
+}
+
+.pop-img .pop-bigimg{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    display: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.pop-img .pop-bigimg img{
+    max-width: 100%;
+    height: 100%;
+}
